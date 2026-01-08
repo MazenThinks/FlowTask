@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-900 dark:text-gray-100 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    overflow-x: hidden;
+    max-width: 100vw;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Enhanced keyboard focus styles for accessibility */
+  *:focus {
+    @apply outline-none;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-4 ring-blue-500 ring-opacity-50;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply ring-4 ring-blue-500 ring-opacity-50;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl md:text-3xl;
+    line-height: 1.3;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  button,
+  a {
+    @apply tracking-wide;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-in;
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .dark .bg-grid-pattern {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Mobile-first safe viewport height */
+  .min-h-screen-safe {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Portfolio-style animations */
+  .animate-hero-entrance {
+    animation: heroEntrance 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-grid-reveal {
+    animation: gridReveal 2s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
+  }
+
+  .animate-grid-fade-out {
+    animation: gridFadeOut 3s cubic-bezier(0.16, 1, 0.3, 1) 4s forwards;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 0.15s;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 0.3s;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 0.45s;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 0.6s;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 0.75s;
+  }
+
+  /* Container custom class */
+  .container-custom {
+    @apply mx-auto max-w-7xl px-6;
+  }
+
+  @screen sm {
+    .container-custom {
+      @apply px-8;
+    }
+  }
+
+  @screen lg {
+    .container-custom {
+      @apply px-12;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* Portfolio-style animation keyframes */
+@keyframes heroEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gridReveal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gridFadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
